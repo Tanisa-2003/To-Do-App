@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 🌈 Animated background */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #0ea5e9, #6366f1, #22c55e, #ec4899);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 🧊 Glass card */
+.box {
+    width: 420px;
+    height: 560px;
+    padding: 30px;
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* 📝 Title */
+h2 {
+    text-align: center;
+    color: #fff;
+    font-size: 1.9em;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* ✍️ Input animation */
+#inputBx {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 14px 18px;
+    border-radius: 30px;
+    font-size: 1em;
+
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#inputBx:focus {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,255,255,0.9);
+}
+
+/* 📋 List */
+#list {
+    margin-top: 20px;
+    height: 350px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+/* ✨ Todo item animation */
+.box li {
+    list-style: none;
+    position: relative;
+    background: linear-gradient(135deg, #38bdf8, #6366f1);
+    margin: 14px 0;
+    padding: 12px 45px 12px 45px;
+    border-radius: 25px;
+    color: #fff;
+    cursor: pointer;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+
+    animation: slideIn 0.4s ease forwards;
+    transition: transform 0.2s, opacity 0.3s;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.box li:hover {
+    transform: scale(1.03);
+}
+
+/* ❌ Delete button */
+.box li i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    background: #ef4444;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box li i::before,
+.box li i::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background: #fff;
+}
+
+.box li i::before {
+    transform: rotate(45deg);
+}
+
+.box li i::after {
+    transform: rotate(-45deg);
+}
+
+/* ✅ Done state */
+.box li.done {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+/* 🖱️ Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.6);
+    border-radius: 10px;
+}
